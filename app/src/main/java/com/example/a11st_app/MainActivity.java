@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         println("응답 - > " + response);
-                        processRespones(response);
+                        processResponse(response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
     public void println(String data){
         xtextView.append(data + "\n");
     }
-    public void processRespones(String respones)
+    public void processResponse(String response)
     {
         Gson gson = new Gson();
-        MovieList movieList = gson.fromJson(respones, MovieList.class);
+        MovieList movieList = gson.fromJson(response, MovieList.class);
         println("영화 정보의 수 : " + movieList.boxOfficeResult.dailyBoxOfficeList.size());
     }
 }
